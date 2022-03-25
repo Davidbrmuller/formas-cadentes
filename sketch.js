@@ -9,12 +9,10 @@ let world;
 var bola
 var quadrado
 var retangulo
+var ground
 
 function preload()
 {
-	engine = Engine.create();	
-
-	world = engine.world;
 
 
 
@@ -43,16 +41,16 @@ var retanguloopcoes ={
 
 
 	
-	Engine.run(engine);
+	
 	bola=Bodies.circle(200,100,20,bolaopçoes)
   World.add (world,bola)
 
-  quadrado=Bodies.rectangle(100,90,20,quadradoopcoes)
+  quadrado=Bodies.rectangle(100,90,20,20,quadradoopcoes)
   World.add (world,quadrado)
 
-  retangulo=Bodies.rectangle(150,80,20,retanguloopcoes)
-  World.add (world,quadrado)
-  
+  retangulo=Bodies.rectangle(150,80,20,80,retanguloopcoes)
+  World.add (world,retangulo)
+  ground= new Ground(200,398,400,20);
 }
 
 
@@ -64,10 +62,7 @@ function draw() {
   ellipse(bola.position.x,bola.position.y,20)
   rect(retangulo.position.x,retangulo.position.y,20,20)
   rect(quadrado.position.x,quadrado.position.y,20,20)
-  inferior.show();
-  superior.show();
-  esquerda.show();
-  direita.show();
+ground.show();
 
 
 
@@ -76,10 +71,4 @@ function draw() {
 }
 
 
-function hforca(){
-  Matter.Body.applyForce(bola, {x:0,y:0}, {x:0.05,y:0})}
-  function hforca(){
-	Matter.Body.applyForce(retangulo, {x:0,y:0}, {x:0.05,y:0})}
-	function hforca(){
-		Matter.Body.applyForce(quadrado, {x:0,y:0}, {x:0.05,y:0})}
 
